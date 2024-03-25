@@ -34,5 +34,5 @@ if (isset($_POST['btnAgregar'])) {
 // Cerrar conexión
 $conn->close();
 header("Location: index.php");
-
+exit;
 ?>

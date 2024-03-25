@@ -57,10 +57,22 @@
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Registro nuevo+</button>
+
         <br>
         <br>
     </form>
     <?php include("mostrar_tabla.php") ?>
+
+    <div class="container d-flex justify-content-end">
+    <form action="buscar_empleado.php" method="POST" class="w-50">
+        <div class="input-group mb-3">
+            <input type="number" class="form-control" placeholder="Ingrese el código del empleado" name="codigoEmpleado" required>
+            <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+        </div>
+    </form>
+</div>
+
+
 
 </div>
 

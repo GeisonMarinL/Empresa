@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container">
-            <a href="" class="navbar-brand"> GRUD EMPLEADOS</a>
+            <a href="./" class="navbar-brand"> GRUD EMPLEADOS</a>
         </div>
     </nav>
     <br>

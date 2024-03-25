@@ -25,7 +25,7 @@
                     <td><?php echo $row["Documento"] ?></td>
                     <td><?php echo $row["Direccion"] ?></td>
                     <td><?php echo $row["Telefono"] ?></td>
-                    <td><img src="<?php echo $row["Foto"] ?>" width="100"></td>
+                    <td><img src="<?php echo $row["Foto"] ?>" width="80"></td>
                 </tr>
 
             <?php } ?>
