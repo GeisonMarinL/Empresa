@@ -59,44 +59,53 @@ if (mysqli_num_rows($result) > 0) {
 mysqli_close($conn);
 ?>
 
-
-
-
+<!-- Contenedor principal del formulario -->
 <div class="container">
+    <!-- Título del formulario -->
     <h1 class="mt-5">Formulario de Datos</h1>
+    <!-- Formulario para actualizar datos, la acción se dirige a "actualizar.php" con un parámetro de código obtenido de la URL -->
     <form action="actualizar.php?codigo=<?php echo $_GET['codigo']?>" method="post" enctype="multipart/form-data">
+        <!-- Grupo de formulario para el código, el valor se obtiene de la base de datos y es de solo lectura -->
         <div class="form-group">
             <label for="codigo">Código</label>
             <input type="text" class="form-control" id="codigo" name="codigo" value="<?php echo $row['Codigo']; ?>" readonly>
         </div>
+        <!-- Grupo de formulario para el nombre, el valor se obtiene de la base de datos -->
         <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $row['Nombre']; ?>">
         </div>
+        <!-- Grupo de formulario para los apellidos, el valor se obtiene de la base de datos -->
         <div class="form-group">
             <label for="apellidos">Apellidos</label>
             <input type="text" class="form-control" id="apellidos" name="apellidos" value="<?php echo $row['Apellidos']; ?>">
         </div>
+        <!-- Grupo de formulario para el documento, el valor se obtiene de la base de datos -->
         <div class="form-group">
             <label for="documento">Documento</label>
             <input type="text" class="form-control" id="documento" name="documento" value="<?php echo $row['Documento']; ?>">
         </div>
+        <!-- Grupo de formulario para la dirección, el valor se obtiene de la base de datos -->
         <div class="form-group">
             <label for="direccion">Dirección</label>
             <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $row['Direccion']; ?>">
         </div>
+        <!-- Grupo de formulario para el teléfono, el valor se obtiene de la base de datos -->
         <div class="form-group">
             <label for="telefono">Teléfono</label>
             <input type="tel" class="form-control" id="telefono" name="telefono" value="<?php echo $row['Telefono']; ?>">
         </div>
+        <!-- Grupo de formulario para la foto, permite subir un archivo -->
         <div class="form-group">
             <label for="foto">Foto</label>
             <input type="file" class="form-control-file" id="foto" name="foto">
         </div>
 
+        <!-- Botón para enviar el formulario -->
         <div class="form-group mt-3"> 
             <button type="submit" class="btn btn-primary" name="actualizar">Actualizar</button>
         </div>
     </form>
 </div>
+<!-- Incluye el pie de página del sitio -->
 <?php include("includes/footer.php");?>
