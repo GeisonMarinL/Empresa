@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9"> 
-                    <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Registro nuevo+
                     </button>
                 </div>

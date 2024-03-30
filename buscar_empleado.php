@@ -58,4 +58,5 @@ if (isset($_POST['codigoEmpleado'])) {
 
 // cerrar la conexión a la base de datos
 mysqli_close($conn);
+include("includes/footer.php") 
 ?>
