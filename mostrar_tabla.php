@@ -17,12 +17,12 @@
         <!-- Encabezado de la tabla con los nombres de las columnas -->
         <thead class="table-dark">
             <tr>
-                <th>Codigo</th>
+                <th>Código</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Documento</th>
-                <th>Direccion</th>
-                <th>Telefono</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
                 <th>Foto</th>
                 <th>Funciones</th>
             </tr>

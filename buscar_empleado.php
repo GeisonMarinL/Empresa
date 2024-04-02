@@ -49,7 +49,7 @@ if (isset($_POST['codigoEmpleado'])) {
         </div>
 <?php
     } else {
-        echo "No se encontraron empleados con ese código.";
+        echo "No se encontraron empleados con ese código";
     }
 
     // liberar el resultado
