@@ -4,19 +4,7 @@ include("conexion.php"); ?> <!-- Incluye el archivo de conexión a la base de da
 <?php include("includes/header.php"); ?> <!-- Incluye la cabecera de la página -->
 
 <div class="container">
-<?php
-    if (isset($_SESSION['success'])) {
-    ?>
-        <div class="col-md-3">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <?php echo $_SESSION['success']; ?>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    <?php
-        unset($_SESSION['success']);
-    }
-    ?>
+    <?php include("alert.php");?>
     <form action="guardar_empleados.php" method="POST" enctype="multipart/form-data">
         <!-- Botón para abrir el modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,7 +70,7 @@ include("conexion.php"); ?> <!-- Incluye el archivo de conexión a la base de da
         </div>
     </form>
 
-    
+
 
     <?php include("mostrar_tabla.php"); ?> <!-- Incluye el archivo para mostrar la tabla de empleados existentes -->
 </div>

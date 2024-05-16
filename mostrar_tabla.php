@@ -1,11 +1,11 @@
 <div class="container mt-2">
     <!-- Formulario de búsqueda y tabla -->
     <div class="row">
-        <div class="col-3">
+        <div class="col-5">
             <!-- Formulario de búsqueda -->
             <form class="mb-3" action="<?php echo $_SERVER['PHP_SELF'];?>" method="GET">
                 <div class="input-group">
-                    <input type="number" name="id" class="form-control" placeholder="Ingrese el ID del empleado">
+                    <input type="text" name="search" class="form-control" placeholder="Ingrese el ID, nombre o apellidos del empleado">
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </div>
             </form>
@@ -33,9 +33,9 @@
                     <tbody>
                         <?php
                         // Verificar si se ha enviado el formulario de búsqueda
-                        if (isset($_GET['id'])) {
-                            $id = $_GET['id'];
-                            $query = "SELECT * FROM empleados WHERE Codigo = $id";
+                        if (isset($_GET['search'])) {
+                            $search = $_GET['search'];
+                            $query = "SELECT * FROM empleados WHERE Codigo LIKE '%$search%' OR Nombre LIKE '%$search%' OR Apellidos LIKE '%$search%'";
                         } else {
                             $query = "SELECT * FROM empleados";
                         }
