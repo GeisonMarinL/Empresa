@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Asegúrate de tener una conexión a la base de datos
 include("conexion.php"); // Asume que tienes un archivo conexion.php con la conexión a la base de datos
 
@@ -21,15 +22,14 @@ if (mysqli_num_rows($result) > 0) {
 
 // Consulta SQL para eliminar el registro
 $query = "DELETE FROM empleados WHERE Codigo = '$codigo'";
+mysqli_query($conn, $query);
 
-// Ejecutar la consulta
-if (mysqli_query($conn, $query)) {
-    // Redirigir al usuario a la página original o a una página de confirmación
-    header("Location: index.php"); // Asume que tienes un archivo index.php con la tabla
-} else {
-    echo "Error al eliminar el registro: " . mysqli_error($conn);
-}
+$_SESSION['success'] = 'Empleado eliminado con éxito!';
 
 // Cerrar la conexión
 mysqli_close($conn);
+
+// Redirigir a index.php
+header("Location: index.php");
+exit();
 ?>

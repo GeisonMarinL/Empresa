@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 include("conexion.php");
 $ruta_destino = "imagenes/";
+
 // Recibir datos del formulario
 if (isset($_POST['btnAgregar'])) {
     $codigo = $_POST['txtCodigo'];
@@ -21,18 +22,14 @@ if (isset($_POST['btnAgregar'])) {
 
     // Insertar datos en la base de datos
     $sql = "INSERT INTO empleados (codigo, nombre, apellidos, documento, direccion, telefono, foto) 
-                VALUES ('$codigo', '$nombre', '$apellidos', '$documento', '$direccion', '$telefono', '$foto_destino')";
+           VALUES ('$codigo', '$nombre', '$apellidos', '$documento', '$direccion', '$telefono', '$foto_destino')";
 
-    $conn->query($sql);
+    $conn->query($sql); // Ejecutar la consulta sin verificar el resultado
 
-    /*if ($conn->query($sql) === TRUE) {
-            echo "Registro creado satisfactoriamente.";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-       } */
+    $_SESSION['success'] = 'Empleado agregado con éxito';
 }
+
 // Cerrar conexión
 $conn->close();
 header("Location: index.php");
 exit;
-?>

@@ -1,6 +1,22 @@
-<?php include("conexion.php") ?> <!-- Incluye el archivo de conexión a la base de datos -->
-<?php include("includes/header.php") ?> <!-- Incluye la cabecera de la página -->
+<?php
+session_start();
+include("conexion.php"); ?> <!-- Incluye el archivo de conexión a la base de datos -->
+<?php include("includes/header.php"); ?> <!-- Incluye la cabecera de la página -->
+
 <div class="container">
+<?php
+    if (isset($_SESSION['success'])) {
+    ?>
+        <div class="col-md-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <?php echo $_SESSION['success']; ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <?php
+        unset($_SESSION['success']);
+    }
+    ?>
     <form action="guardar_empleados.php" method="POST" enctype="multipart/form-data">
         <!-- Botón para abrir el modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -12,12 +28,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                             <!-- Campo para el código del empleado -->
+                            <!-- Campo para el código del empleado -->
                             <div class="form-group col-md-6">
                                 <label for="codigo" class="form-label">Código:</label>
                                 <input type="number" class="form-control" id="codigo" name="txtCodigo" required>
                             </div>
-                                <!-- Campo para el nombre del empleado -->
+                            <!-- Campo para el nombre del empleado -->
                             <div class="form-group col-md-6">
                                 <label for="nombre" class="form-label">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre" name="txtNombre" required>
@@ -42,34 +58,33 @@
                                 <label for="telefono" class="form-label">Teléfono:</label>
                                 <input type="text" class="form-control" id="telefono" name="txtTelefono">
                             </div>
-                             <!-- Campo para la foto del empleado -->
-                            <div class="form-group col-md-14">
+                            <!-- Campo para la foto del empleado -->
+                            <div class="form-group col-md-6">
                                 <label for="foto" class="form-label">Foto:</label>
                                 <input type="file" accept="image/*" class="form-control" id="foto" name="txtFoto">
                             </div>
                         </div>
                         <div class="modal-footer">
                             <!-- Botón para enviar el formulario -->
-                            <input class="btn btn-primary" value="Agregar " type="submit" name="btnAgregar">
+                            <input class="btn btn-primary" value="Agregar" type="submit" name="btnAgregar">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Botón para abrir el modal -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9"> 
-                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Registro nuevo+
-                    </button>
-                </div>
-                
+        <div class="row">
+            <div class="col-md-9">
+                <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Registro nuevo
+                </button>
             </div>
         </div>
     </form>
-    <?php include("mostrar_tabla.php") ?><!-- Incluye el archivo para mostrar la tabla de empleados existentes -->
+
     
+
+    <?php include("mostrar_tabla.php"); ?> <!-- Incluye el archivo para mostrar la tabla de empleados existentes -->
 </div>
 
-<?php include("includes/footer.php") ?><!-- Incluye el archivo de pie de página para mostrar el pie de página común en todas las páginas -->
+<?php include("includes/footer.php"); ?> <!-- Incluye el archivo de pie de página para mostrar el pie de página común en todas las páginas -->
